@@ -1,2 +1,0 @@
-# littlefieldheatpumps
-Littlefield Heat Pumps
