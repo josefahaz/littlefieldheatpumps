@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heat Pump Installation - Littlefield Heat Pumps</title>
+    <link rel="stylesheet" href="css/style_new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="hero-section">
+            <a href="index.html"><img src="Images/logo.png" alt="Littlefield Heat Pumps, LLC Logo" class="logo"></a>
+            <h2>Heat Pump Installation</h2>
+            <p>Professional installation services for your home or business</p>
+            <button id="open-modal-btn" class="cta-button">GET IN TOUCH</button>
+        </header>
+
+        <main>
+            <section id="service-details">
+                <div class="content-container">
+                    <h2>Our Installation Services</h2>
+                    <p>At Littlefield Heat Pumps, we specialize in professional heat pump installations that provide efficient heating and cooling for your home or business. Our experienced team ensures your system is installed correctly for optimal performance and energy savings.</p>
+                    
+                    <h3>Why Choose Our Installation Services?</h3>
+                    <ul>
+                        <li>Expert technicians with years of experience</li>
+                        <li>High-efficiency systems that reduce energy costs</li>
+                        <li>Professional installation with minimal disruption</li>
+                        <li>Thorough testing and setup of your new system</li>
+                        <li>Full explanation of system operation and maintenance</li>
+                    </ul>
+                    
+                    <h3>Our Installation Process</h3>
+                    <p>We follow a comprehensive installation process to ensure your heat pump system works perfectly:</p>
+                    <ol>
+                        <li>Initial consultation and home assessment</li>
+                        <li>System sizing and equipment selection</li>
+                        <li>Professional installation by certified technicians</li>
+                        <li>System testing and optimization</li>
+                        <li>Customer education on system operation</li>
+                    </ol>
+                    
+                    <div class="cta-container">
+                        <a href="index.html" class="secondary-button">Back to Home</a>
+                        <button id="open-modal-btn-2" class="cta-button">Request a Quote</button>
+                        <a href="completed-work.html" class="secondary-button">View Completed Work</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=100091850917652" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <img src="Images/logo.png" alt="Littlefield Heat Pumps, LLC Logo" class="logo-footer">
+            <p>&copy; 2024 Littlefield Heat Pumps, LLC. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- The Modal -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Get in Touch</h2>
+            <form id="contact-form" action="https://formspree.io/f/mblywvvl" method="POST">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="Full Name" required>
+
+                <label for="contactinfo">Email or Phone Number</label>
+                <input type="text" id="contactinfo" name="Contact Info" required>
+
+                <label>Preferred Method of Response</label>
+                <div class="radio-group">
+                    <input type="radio" id="text" name="Preferred Response" value="Text">
+                    <label for="text">Text</label>
+                    <input type="radio" id="email" name="Preferred Response" value="Email" checked>
+                    <label for="email">Email</label>
+                    <input type="radio" id="phone" name="Preferred Response" value="Phone Call">
+                    <label for="phone">Phone Call</label>
+                </div>
+
+                <label for="reason">Reason for Inquiry</label>
+                <select id="reason" name="Reason for Inquiry">
+                    <option value="Heat Pump Installation" selected>Heat Pump Installation</option>
+                    <option value="Quote">Quote</option>
+                    <option value="Issues">Issues</option>
+                </select>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="Message" rows="4" placeholder="Please describe your needs..."></textarea>
+
+                <button type="submit" class="cta-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

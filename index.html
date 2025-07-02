@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Littlefield Heat Pumps</title>
+    <link rel="stylesheet" href="css/style_new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="hero-section">
+            <img src="Images/logo.png" alt="Littlefield Heat Pumps, LLC Logo" class="logo">
+            <h2>Introducing</h2>
+            <p>Littlefield Heat Pumps</p>
+            <button id="open-modal-btn" class="cta-button">GET IN TOUCH</button>
+        </header>
+
+        <main>
+            <section id="services">
+                <h2>Our Services</h2>
+                <div class="services-layout">
+                    <div class="services-row">
+                        <a href="heat-pump-installation.html" class="service-link">
+                            <div class="service">
+                                <h3>Heat Pump Installation</h3>
+                                <p>Stay comfortable year-round with our high-efficiency heat pump installations.</p>
+                                <div class="learn-more">Learn More</div>
+                            </div>
+                        </a>
+                        <a href="natural-gas-propane.html" class="service-link">
+                            <div class="service">
+                                <h3>Natural Gas & Propane</h3>
+                                <p>Reliable and efficient solutions for your natural gas and propane heating needs.</p>
+                                <div class="learn-more">Learn More</div>
+                            </div>
+                        </a>
+                        <a href="maintenance-repair.html" class="service-link">
+                            <div class="service">
+                                <h3>Maintenance & Repair</h3>
+                                <p>Keep your system running smoothly with our expert maintenance and repair services.</p>
+                                <div class="learn-more">Learn More</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2>Contact Us</h2>
+                <p>Ready to get started? Give us a call, send us an email, or click GET IN TOUCH.</p>
+                <p><strong>Phone:</strong> (207) 951-2013</p>
+                <p><strong>Email:</strong> harold.littlefieldheatpumps@gmail.com</p>
+                <p><strong>Office Hours:</strong> Monday through Friday 8am-5pm EST</p>
+                <p class="note">For requests outside this timeframe, please use the GET IN TOUCH option.</p>
+            </section>
+        </main>
+
+        <footer>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=100091850917652" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <img src="Images/logo.png" alt="Littlefield Heat Pumps, LLC Logo" class="logo-footer">
+            <p>&copy; 2024 Littlefield Heat Pumps, LLC. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- The Modal -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Get in Touch</h2>
+            <form id="contact-form" action="https://formspree.io/f/mblywvvl" method="POST">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="Full Name" required>
+
+                <label for="contactinfo">Email or Phone Number</label>
+                <input type="text" id="contactinfo" name="Contact Info" required>
+
+                <label>Preferred Method of Response</label>
+                <div class="radio-group">
+                    <input type="radio" id="text" name="Preferred Response" value="Text">
+                    <label for="text">Text</label>
+                    <input type="radio" id="email" name="Preferred Response" value="Email" checked>
+                    <label for="email">Email</label>
+                    <input type="radio" id="phone" name="Preferred Response" value="Phone Call">
+                    <label for="phone">Phone Call</label>
+                </div>
+
+                <label for="reason">Reason for Inquiry</label>
+                <select id="reason" name="Reason for Inquiry">
+                    <option value="Service Request">Service Request</option>
+                    <option value="Quote">Quote</option>
+                    <option value="Issues">Issues</option>
+                </select>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="Message" rows="4" placeholder="Please describe your needs..."></textarea>
+
+                <button type="submit" class="cta-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance & Repair - Littlefield Heat Pumps</title>
+    <link rel="stylesheet" href="css/style_new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="hero-section">
+            <a href="index.html"><img src="Images/logo.png" alt="Littlefield Heat Pumps, LLC Logo" class="logo"></a>
+            <h2>Maintenance & Repair</h2>
+            <p>Keep your heating systems running smoothly</p>
+            <button id="open-modal-btn" class="cta-button">GET IN TOUCH</button>
+        </header>
+
+        <main>
+            <section id="service-details">
+                <div class="content-container">
+                    <h2>Expert Maintenance & Repair Services</h2>
+                    <p>Regular maintenance and timely repairs are essential for keeping your heating systems operating efficiently and extending their lifespan. At Littlefield Heat Pumps, we offer comprehensive maintenance and repair services for all types of heating systems.</p>
+                    
+                    <h3>Our Maintenance Services</h3>
+                    <ul>
+                        <li>Seasonal tune-ups and inspections</li>
+                        <li>Filter cleaning and replacement</li>
+                        <li>System performance optimization</li>
+                        <li>Preventative maintenance plans</li>
+                        <li>Comprehensive system cleaning</li>
+                    </ul>
+                    
+                    <h3>Professional Repair Services</h3>
+                    <p>When your heating system isn't performing as it should, our expert technicians are ready to help:</p>
+                    <ul>
+                        <li>Diagnostic troubleshooting</li>
+                        <li>Emergency repair services</li>
+                        <li>Component replacement</li>
+                        <li>System restoration</li>
+                        <li>Performance testing after repairs</li>
+                    </ul>
+                    
+                    <h3>Benefits of Regular Maintenance</h3>
+                    <ul>
+                        <li>Lower energy bills through improved efficiency</li>
+                        <li>Extended equipment lifespan</li>
+                        <li>Fewer unexpected breakdowns</li>
+                        <li>Improved indoor air quality</li>
+                        <li>Maintaining manufacturer warranties</li>
+                    </ul>
+                    
+                    <div class="cta-container">
+                        <a href="index.html" class="secondary-button">Back to Home</a>
+                        <button id="open-modal-btn-2" class="cta-button">Schedule Service</button>
+                        <a href="maintenance-repair-gallery.html" class="secondary-button">View Completed Work</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=100091850917652" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <img src="Images/logo.png" alt="Littlefield Heat Pumps, LLC Logo" class="logo-footer">
+            <p>&copy; 2024 Littlefield Heat Pumps, LLC. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- The Modal -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Get in Touch</h2>
+            <form id="contact-form" action="https://formspree.io/f/mblywvvl" method="POST">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="Full Name" required>
+
+                <label for="contactinfo">Email or Phone Number</label>
+                <input type="text" id="contactinfo" name="Contact Info" required>
+
+                <label>Preferred Method of Response</label>
+                <div class="radio-group">
+                    <input type="radio" id="text" name="Preferred Response" value="Text">
+                    <label for="text">Text</label>
+                    <input type="radio" id="email" name="Preferred Response" value="Email" checked>
+                    <label for="email">Email</label>
+                    <input type="radio" id="phone" name="Preferred Response" value="Phone Call">
+                    <label for="phone">Phone Call</label>
+                </div>
+
+                <label for="reason">Reason for Inquiry</label>
+                <select id="reason" name="Reason for Inquiry">
+                    <option value="Maintenance & Repair" selected>Maintenance & Repair</option>
+                    <option value="Quote">Quote</option>
+                    <option value="Issues">Issues</option>
+                </select>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="Message" rows="4" placeholder="Please describe your needs..."></textarea>
+
+                <button type="submit" class="cta-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
