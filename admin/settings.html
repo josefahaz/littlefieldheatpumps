@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Settings - Littlefield Heat Pumps</title>
+    <link rel="stylesheet" href="../css/style_new.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="admin-login">
+            <button id="logout-button" class="login-button"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+        
+        <header class="hero-section">
+            <a href="../index.html"><img src="../Images/logo.png" alt="Littlefield Heat Pumps, LLC Logo" class="logo"></a>
+            <h2>Admin Settings</h2>
+            <p>System Configuration</p>
+        </header>
+
+        <main class="admin-dashboard">
+            <div class="admin-header">
+                <div class="admin-title">
+                    <i class="fas fa-cog fa-2x" style="color: var(--admin-accent);"></i>
+                    <h1>Settings</h1>
+                </div>
+                <div class="admin-actions">
+                    <a href="profile.html" class="admin-button">
+                        <i class="fas fa-user-circle"></i> <span id="user-name">My Profile</span>
+                    </a>
+                    <a href="dashboard.html" class="admin-button secondary">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                </div>
+            </div>
+            
+            <div class="admin-nav">
+                <ul>
+                    <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+                    <li><a href="#" id="nav-inquiries"><i class="fas fa-envelope"></i> Customer Inquiries</a></li>
+                    <li><a href="#" id="nav-invoices"><i class="fas fa-file-invoice-dollar"></i> Invoices</a></li>
+                    <li><a href="settings.html" class="active"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </div>
+            
+            <div class="admin-content">
+                <div class="settings-container">
+                    <!-- QuickBooks Integration Settings -->
+                    <div class="admin-card">
+                        <h2><i class="fas fa-chart-line"></i> QuickBooks Integration</h2>
+                        <div class="settings-section">
+                            <div class="settings-header">
+                                <h3>Connection Settings</h3>
+                                <div class="status-indicator" id="qb-connection-status">
+                                    <i class="fas fa-info-circle"></i> Not Connected
+                                </div>
+                            </div>
+                            
+                            <form id="quickbooks-settings-form" class="settings-form">
+                                <div class="form-group">
+                                    <label for="qb-client-id">Client ID</label>
+                                    <input type="text" id="qb-client-id" name="qb-client-id" placeholder="Enter QuickBooks Client ID">
+                                </div>
+                                <div class="form-group">
+                                    <label for="qb-client-secret">Client Secret</label>
+                                    <input type="password" id="qb-client-secret" name="qb-client-secret" placeholder="Enter QuickBooks Client Secret">
+                                </div>
+                                <div class="form-group">
+                                    <label for="qb-realm-id">Realm ID (Company ID)</label>
+                                    <input type="text" id="qb-realm-id" name="qb-realm-id" placeholder="Enter QuickBooks Realm ID">
+                                </div>
+                                <div class="form-group">
+                                    <label for="qb-environment">Environment</label>
+                                    <select id="qb-environment" name="qb-environment">
+                                        <option value="sandbox">Sandbox (Testing)</option>
+                                        <option value="production">Production</option>
+                                    </select>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="admin-button">
+                                        <i class="fas fa-save"></i> Save Settings
+                                    </button>
+                                    <button type="button" id="qb-test-connection" class="admin-button secondary">
+                                        <i class="fas fa-plug"></i> Test Connection
+                                    </button>
+                                    <button type="button" id="qb-authorize" class="admin-button qb-auth-button">
+                                        <i class="fas fa-lock"></i> Authorize QuickBooks
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Sync Settings</h3>
+                            <form id="quickbooks-sync-form" class="settings-form">
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="sync-invoices" name="sync-invoices" checked>
+                                    <label for="sync-invoices">Sync Invoices</label>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="sync-customers" name="sync-customers" checked>
+                                    <label for="sync-customers">Sync Customers</label>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="sync-payments" name="sync-payments" checked>
+                                    <label for="sync-payments">Sync Payments</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sync-frequency">Sync Frequency</label>
+                                    <select id="sync-frequency" name="sync-frequency">
+                                        <option value="hourly">Hourly</option>
+                                        <option value="daily" selected>Daily</option>
+                                        <option value="weekly">Weekly</option>
+                                        <option value="manual">Manual Only</option>
+                                    </select>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="admin-button">
+                                        <i class="fas fa-save"></i> Save Sync Settings
+                                    </button>
+                                    <button type="button" id="qb-sync-now" class="admin-button secondary">
+                                        <i class="fas fa-sync"></i> Sync Now
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Gmail Integration Settings -->
+                    <div class="admin-card">
+                        <h2><i class="fas fa-envelope"></i> Gmail Integration</h2>
+                        <div class="settings-section">
+                            <div class="settings-header">
+                                <h3>Customer Inquiry Settings</h3>
+                                <div class="status-indicator" id="gmail-connection-status">
+                                    <i class="fas fa-info-circle"></i> Not Connected
+                                </div>
+                            </div>
+                            
+                            <form id="gmail-settings-form" class="settings-form">
+                                <div class="form-group">
+                                    <label for="gmail-client-id">Google Client ID</label>
+                                    <input type="text" id="gmail-client-id" name="gmail-client-id" placeholder="Enter Google OAuth Client ID">
+                                    <small class="form-help">Get this from Google Cloud Console</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gmail-client-secret">Google Client Secret</label>
+                                    <input type="password" id="gmail-client-secret" name="gmail-client-secret" placeholder="Enter Google OAuth Client Secret">
+                                    <small class="form-help">Keep this secure and private</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gmail-business-email">Business Email Address</label>
+                                    <input type="email" id="gmail-business-email" name="gmail-business-email" placeholder="harold.littlefieldheatpumps@gmail.com">
+                                    <small class="form-help">Gmail account to monitor for customer inquiries</small>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="admin-button">
+                                        <i class="fas fa-save"></i> Save Settings
+                                    </button>
+                                    <button type="button" id="gmail-test-connection" class="admin-button secondary">
+                                        <i class="fas fa-plug"></i> Test Connection
+                                    </button>
+                                    <button type="button" id="gmail-authorize" class="admin-button gmail-auth-button">
+                                        <i class="fas fa-lock"></i> Authorize Gmail
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Inquiry Sync Settings</h3>
+                            <form id="gmail-sync-form" class="settings-form">
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="auto-sync-inquiries" name="auto-sync-inquiries" checked>
+                                    <label for="auto-sync-inquiries">Automatically sync customer inquiries</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sync-frequency">Sync Frequency</label>
+                                    <select id="sync-frequency" name="sync-frequency">
+                                        <option value="5">Every 5 minutes</option>
+                                        <option value="15" selected>Every 15 minutes</option>
+                                        <option value="30">Every 30 minutes</option>
+                                        <option value="60">Every hour</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="max-inquiries">Maximum inquiries to fetch</label>
+                                    <select id="max-inquiries" name="max-inquiries">
+                                        <option value="25">25</option>
+                                        <option value="50" selected>50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="admin-button">
+                                        <i class="fas fa-save"></i> Save Sync Settings
+                                    </button>
+                                    <button type="button" id="gmail-sync-now" class="admin-button">
+                                        <i class="fas fa-sync"></i> Sync Now
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            <div id="gmail-sync-status" class="sync-status" style="display: none;">
+                                <h4>Last Sync Results</h4>
+                                <p id="gmail-sync-details">No sync performed yet</p>
+                                <button id="gmail-show-inquiries" class="admin-button secondary" style="display: none;">
+                                    <i class="fas fa-list"></i> View Synced Inquiries
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Admin User Management -->
+                    <div class="admin-card">
+                        <h2><i class="fas fa-users-cog"></i> Admin User Management</h2>
+                        <div class="settings-section">
+                            <div class="settings-header">
+                                <h3>Current Admin Users</h3>
+                                <button id="add-admin-button" class="admin-button small">
+                                    <i class="fas fa-user-plus"></i> Add New Admin
+                                </button>
+                            </div>
+                            
+                            <div class="admin-table-container">
+                                <table class="admin-table" id="admin-users-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Username</th>
+                                            <th>Role</th>
+                                            <th>Email</th>
+                                            <th>Last Login</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="admin-users-tbody">
+                                        <!-- Admin users will be populated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <img src="../Images/logo.png" alt="Littlefield Heat Pumps, LLC Logo" class="logo-footer">
+            <p>&copy; 2024 Littlefield Heat Pumps, LLC. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Modal for adding/editing admin users -->
+    <div id="admin-user-modal" class="admin-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Add New Admin User</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="admin-user-form">
+                    <input type="hidden" id="edit-user-id">
+                    <div class="form-group">
+                        <label for="admin-fullname">Full Name</label>
+                        <input type="text" id="admin-fullname" name="admin-fullname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-name">Display Name</label>
+                        <input type="text" id="admin-name" name="admin-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-username">Username</label>
+                        <input type="text" id="admin-username" name="admin-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-email">Email</label>
+                        <input type="email" id="admin-email" name="admin-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-phone">Phone</label>
+                        <input type="tel" id="admin-phone" name="admin-phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-password">Password</label>
+                        <input type="password" id="admin-password" name="admin-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-role">Role</label>
+                        <select id="admin-role" name="admin-role" required>
+                            <option value="admin">Admin</option>
+                            <option value="owner">Owner</option>
+                            <option value="staff">Staff</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Permissions</label>
+                        <div class="permissions-checkboxes">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="perm-manage-website" name="permissions" value="manage_website">
+                                <label for="perm-manage-website">Manage Website</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="perm-manage-content" name="permissions" value="manage_content">
+                                <label for="perm-manage-content">Manage Content</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="perm-view-inquiries" name="permissions" value="view_inquiries">
+                                <label for="perm-view-inquiries">View Inquiries</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="perm-manage-invoices" name="permissions" value="manage_invoices">
+                                <label for="perm-manage-invoices">Manage Invoices</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="perm-manage-settings" name="permissions" value="manage_settings">
+                                <label for="perm-manage-settings">Manage Settings</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="perm-manage-users" name="permissions" value="manage_users">
+                                <label for="perm-manage-users">Manage Users</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="admin-button">
+                            <i class="fas fa-save"></i> <span id="submit-button-text">Add User</span>
+                        </button>
+                        <button type="button" class="admin-button secondary close-modal">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="admin-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Confirm Action</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirm-message">Are you sure you want to proceed?</p>
+                <div class="form-actions">
+                    <button id="confirm-yes" class="admin-button danger">
+                        <i class="fas fa-check"></i> Yes
+                    </button>
+                    <button class="admin-button secondary close-modal">
+                        <i class="fas fa-times"></i> No
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/admin-login.js"></script>
+    <script src="../js/admin-settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Payments - Littlefield Heat Pumps</title>
+    <link rel="stylesheet" href="css/style_new.css">
+    <link rel="stylesheet" href="css/payment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="admin-login">
+            <a href="admin/login.html" class="login-button"><i class="fas fa-user-lock"></i> Admin</a>
+        </div>
+        <header class="hero-section">
+            <a href="index.html"><img src="Images/logo.png" alt="Littlefield Heat Pumps, LLC Logo" class="logo"></a>
+            <h2>Online Payments</h2>
+            <p>Pay your invoices securely online</p>
+            <button id="open-modal-btn" class="cta-button">GET IN TOUCH</button>
+        </header>
+
+        <main>
+            <section id="service-details" class="light-theme">
+                <div class="content-container">
+                    <h2>Make a Payment</h2>
+                    <p>Use our secure online payment system to pay your Littlefield Heat Pumps invoice quickly and easily.</p>
+                    
+                    <div class="payment-options">
+                        <div class="payment-method">
+                            <h3>Pay an Invoice</h3>
+                            <p>If you've received an invoice from us, you can pay it online using the options below.</p>
+                            
+                            <div class="invoice-lookup">
+                                <h4>Find Your Invoice</h4>
+                                <form id="invoice-lookup-form" class="payment-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="invoice-number">Invoice Number</label>
+                                            <input type="text" id="invoice-number" name="invoice-number" placeholder="Enter invoice #" required aria-label="Invoice number">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="customer-email">Email Address</label>
+                                            <input type="email" id="customer-email" name="customer-email" placeholder="Enter your email" required aria-label="Customer email">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="secondary-button">Find Invoice</button>
+                                </form>
+                            </div>
+                            
+                            <div class="payment-button-container">
+                                <!-- QuickBooks Payment Button -->
+                                <div id="quickbooks-payment-container">
+                                    <a href="https://app.qbo.intuit.com/app/customerportal" class="qb-payment-button" id="quickbooks-payment" target="_blank">
+                                        <i class="fas fa-credit-card"></i> Pay Invoice Online
+                                    </a>
+                                    <p class="payment-note">You will be redirected to our secure QuickBooks payment portal.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-method">
+                            <h3>Other Payment Methods</h3>
+                            <ul class="payment-list">
+                                <li><i class="fas fa-check"></i> <strong>Check:</strong> Make checks payable to "Littlefield Heat Pumps, LLC"</li>
+                                <li><i class="fas fa-phone"></i> <strong>Phone:</strong> Call us to make a payment over the phone</li>
+                                <li><i class="fas fa-file-invoice-dollar"></i> <strong>Invoice:</strong> Payment instructions are included on your invoice</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-faq">
+                        <h3>Payment FAQs</h3>
+                        <div class="faq-item">
+                            <h4>Is online payment secure?</h4>
+                            <p>Yes, all online payments are processed through QuickBooks' secure payment gateway with industry-standard encryption.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>What payment methods are accepted online?</h4>
+                            <p>We accept all major credit cards including Visa, MasterCard, American Express, and Discover.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>Do I need my invoice number?</h4>
+                            <p>Yes, please have your invoice number ready when making an online payment.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>Questions about your bill?</h4>
+                            <p>If you have any questions about your invoice or need assistance with payment, please <button id="open-modal-btn-2" class="text-button">contact us</button>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-container">
+                        <a href="index.html" class="secondary-button">Back to Home</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=100091850917652" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <img src="Images/logo.png" alt="Littlefield Heat Pumps, LLC Logo" class="logo-footer">
+            <p>&copy; 2024 Littlefield Heat Pumps, LLC. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Get in Touch</h2>
+            <form id="contact-form" action="https://formspree.io/f/mblywvvl" method="POST">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="Full Name" required>
+
+                <label for="contactinfo">Email or Phone Number</label>
+                <input type="text" id="contactinfo" name="Contact Info" required>
+
+                <label>Preferred Method of Response</label>
+                <div class="radio-group">
+                    <input type="radio" id="text" name="Preferred Response" value="Text">
+                    <label for="text">Text</label>
+                    <input type="radio" id="email" name="Preferred Response" value="Email" checked>
+                    <label for="email">Email</label>
+                    <input type="radio" id="phone" name="Preferred Response" value="Phone Call">
+                    <label for="phone">Phone Call</label>
+                </div>
+
+                <label for="reason">Reason for Inquiry</label>
+                <select id="reason" name="Reason for Inquiry">
+                    <option value="Billing Question" selected>Billing Question</option>
+                    <option value="Payment Issue">Payment Issue</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="Message" rows="4" placeholder="Please describe your billing question or payment issue..."></textarea>
+
+                <button type="submit" class="cta-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content payment-modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Make a Payment</h2>
+            <form id="payment-form">
+                <div class="form-group">
+                    <label for="amount">Payment Amount ($)*</label>
+                    <input type="number" id="amount" name="amount" step="0.01" min="0.01" placeholder="0.00" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="invoice-number-payment">Invoice Number (if applicable)</label>
+                    <input type="text" id="invoice-number-payment" name="invoice-number" placeholder="Enter invoice #">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address*</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="payment-card-details">
+                    <h3>Card Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="card-name">Name on Card*</label>
+                        <input type="text" id="card-name" name="card-name" placeholder="Enter name on card" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="card-number">Card Number*</label>
+                        <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="card-expiry">Expiration Date*</label>
+                            <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/YY" maxlength="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-cvv">CVV*</label>
+                            <input type="text" id="card-cvv" name="card-cvv" placeholder="123" maxlength="4" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="primary-button">Process Payment</button>
+                    <button type="button" class="secondary-button payment-cancel">Cancel</button>
+                </div>
+                
+                <div class="payment-security-note">
+                    <i class="fas fa-lock"></i> Your payment information is secure and encrypted.
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Notification Container -->
+    <div class="notification-container"></div>
+    
+    <script src="js/script.js"></script>
+    <script src="js/quickbooks-integration.js"></script>
+    <script src="js/payment-page.js"></script>
+    <script>
+        // Add event listener for the second modal open button
+        document.getElementById('open-modal-btn-2').addEventListener('click', function() {
+            document.getElementById('contact-modal').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Littlefield Heat Pumps</title>
+    <link rel="stylesheet" href="../css/style_new.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="admin-login">
+            <button id="logout-button" class="login-button"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+        
+        <header class="hero-section">
+            <a href="../index.html"><img src="../Images/logo.png" alt="Littlefield Heat Pumps, LLC Logo" class="logo"></a>
+            <h2>Admin Dashboard</h2>
+            <p>Welcome, <span id="admin-name">Admin</span></p>
+        </header>
+
+        <main class="admin-dashboard">
+            <div class="admin-header">
+                <div class="admin-title">
+                    <i class="fas fa-tachometer-alt fa-2x" style="color: var(--admin-accent);"></i>
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="admin-actions">
+                    <a href="profile.html" class="admin-button">
+                        <i class="fas fa-user-circle"></i> <span id="user-name">My Profile</span>
+                    </a>
+                    <button id="logout-button" class="admin-button secondary">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+            
+            <div class="admin-nav">
+                <ul>
+                    <li><a href="dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+                    <li><a href="#" id="nav-inquiries"><i class="fas fa-envelope"></i> Customer Inquiries</a></li>
+                    <li><a href="#" id="nav-invoices"><i class="fas fa-file-invoice-dollar"></i> Invoices</a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </div>
+            
+            <div class="admin-content">
+                <!-- Overview Cards -->
+                <div class="admin-grid">
+                    <div class="admin-card">
+                        <h2><i class="fas fa-envelope"></i> Recent Inquiries</h2>
+                        <div class="admin-table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Name</th>
+                                        <th>Contact</th>
+                                        <th>Reason</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="inquiries-table">
+                                    <!-- Customer inquiries will appear here -->
+                                </tbody>
+                            </table>
+                            <div class="admin-card-footer">
+                                <button class="admin-button" id="view-all-inquiries">
+                                    <i class="fas fa-list"></i> View All Inquiries
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-card">
+                        <h2><i class="fas fa-file-invoice-dollar"></i> Recent Invoices</h2>
+                        <div class="admin-table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Invoice #</th>
+                                        <th>Customer</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="invoices-table">
+                                    <!-- Invoices will appear here -->
+                                </tbody>
+                            </table>
+                            <div class="admin-card-footer">
+                                <button class="admin-button" id="view-all-invoices">
+                                    <i class="fas fa-list"></i> View All Invoices
+                                </button>
+                                <button class="admin-button" id="create-invoice">
+                                    <i class="fas fa-plus"></i> Create Invoice
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-card">
+                        <h2><i class="fas fa-calendar-alt"></i> Upcoming Appointments</h2>
+                        <div class="admin-table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Customer</th>
+                                        <th>Service</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="appointments-table">
+                                    <!-- Appointments will appear here -->
+                                </tbody>
+                            </table>
+                            <div class="admin-card-footer">
+                                <button class="admin-button" id="view-calendar">
+                                    <i class="fas fa-calendar"></i> View Calendar
+                                </button>
+                                <button class="admin-button" id="schedule-appointment">
+                                    <i class="fas fa-plus"></i> Schedule Appointment
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-card">
+                        <h2><i class="fas fa-chart-line"></i> QuickBooks Integration</h2>
+                        <div class="qb-integration-status">
+                            <div class="status-indicator">
+                                <i class="fas fa-info-circle"></i> QuickBooks Connection Status
+                            </div>
+                            <p>Not yet connected</p>
+                            <div class="qb-actions">
+                                <button class="admin-button" id="sync-quickbooks">
+                                    <i class="fas fa-sync"></i> Connect to QuickBooks
+                                </button>
+                                <button class="admin-button secondary" id="qb-settings">
+                                    <i class="fas fa-cog"></i> Integration Settings
+                                </button>
+                            </div>
+                            <div class="qb-stats">
+                                <!-- QuickBooks statistics will appear here after connection -->                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <img src="../Images/logo.png" alt="Littlefield Heat Pumps, LLC Logo" class="logo-footer">
+            <p>&copy; 2024 Littlefield Heat Pumps, LLC. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="../js/admin-login.js"></script>
+    <script src="../js/admin-dashboard.js"></script>
+</body>
+</html>

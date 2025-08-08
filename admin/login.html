@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Littlefield Heat Pumps</title>
+    <link rel="stylesheet" href="../css/style_new.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="hero-section">
+            <a href="../index.html"><img src="../Images/logo.png" alt="Littlefield Heat Pumps, LLC Logo" class="logo"></a>
+            <h2>Admin Portal</h2>
+            <p>Secure login required</p>
+        </header>
+
+        <main>
+            <section id="login-section">
+                <div class="content-container">
+                    <h2>Administrator Login</h2>
+                    <div id="login-error" class="error-message" style="display: none;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span id="error-text">Invalid username or password. Please try again.</span>
+                    </div>
+                    
+                    <form id="admin-login-form" class="admin-form">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        
+                        <button type="submit" class="cta-button">Sign In</button>
+                    </form>
+                    
+                    <div class="login-footer">
+                        <p>This area is restricted to authorized personnel only.</p>
+                        <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Website</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <img src="../Images/logo.png" alt="Littlefield Heat Pumps, LLC Logo" class="logo-footer">
+            <p>&copy; 2024 Littlefield Heat Pumps, LLC. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="../js/admin-login.js"></script>
+</body>
+</html>
