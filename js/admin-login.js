@@ -99,6 +99,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    // Handle logout
+    const logoutButton = document.getElementById('logout-button');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', function() {
+            // Clear session storage
+            sessionStorage.removeItem('currentUser');
+            
+            // Redirect to login page
+            window.location.href = 'login.html';
+        });
+    }
+    
     // Run login status check
     checkLoginStatus();
 });
