@@ -31,6 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('profile-email').textContent = userProfile.email;
     document.getElementById('profile-phone').textContent = userProfile.phone;
     
+    // Populate quick info sidebar
+    document.getElementById('profile-email-quick').textContent = userProfile.email;
+    document.getElementById('profile-phone-quick').textContent = userProfile.phone;
+    
     // Format last login date
     const lastLogin = new Date(userProfile.lastLogin);
     const formattedDate = lastLogin.toLocaleDateString('en-US', { 
@@ -40,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         hour: '2-digit',
         minute: '2-digit'
     });
-    document.getElementById('profile-last-login').textContent = formattedDate;
+    document.getElementById('profile-last-login-quick').textContent = 'Last login: ' + formattedDate;
 
     // Set role badge
     const roleElement = document.getElementById('profile-role');
@@ -67,14 +71,24 @@ document.addEventListener('DOMContentLoaded', function() {
             'manage_users': 'Manage Users'
         };
         
+        const permissionIcons = {
+            'manage_website': 'globe',
+            'manage_content': 'edit',
+            'view_inquiries': 'envelope',
+            'manage_invoices': 'file-invoice-dollar',
+            'manage_settings': 'cog',
+            'manage_users': 'users'
+        };
+        
         userProfile.permissions.forEach(permission => {
             const permissionElement = document.createElement('div');
-            permissionElement.className = 'permission-item';
+            permissionElement.className = 'permission-card';
             
             const label = permissionLabels[permission] || permission;
+            const icon = permissionIcons[permission] || 'check';
             
             permissionElement.innerHTML = `
-                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-${icon}"></i>
                 <span>${label}</span>
             `;
             

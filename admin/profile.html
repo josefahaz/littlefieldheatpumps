@@ -6,6 +6,7 @@
     <title>Admin Profile - Littlefield Heat Pumps</title>
     <link rel="stylesheet" href="../css/style_new.css">
     <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/profile-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -44,62 +45,81 @@
             </div>
             
             <div class="admin-content">
-                <div class="profile-container">
-                    <div class="profile-header">
-                        <div class="profile-image-container">
-                            <div class="profile-image" id="profile-image">
-                                <!-- Profile image will be set by JavaScript -->
-                                <i class="fas fa-user"></i>
+                <div class="profile-grid">
+                    <!-- Left Column - Profile Overview -->
+                    <div class="profile-sidebar">
+                        <div class="admin-card profile-card">
+                            <div class="profile-image-wrapper">
+                                <div class="profile-image-large" id="profile-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <button class="change-image-btn">
+                                    <i class="fas fa-camera"></i> Change Photo
+                                </button>
                             </div>
-                            <button class="change-image-btn">
-                                <i class="fas fa-camera"></i>
-                            </button>
-                        </div>
-                        <div class="profile-info">
-                            <h2 id="profile-name">Loading...</h2>
-                            <p id="profile-position">Loading...</p>
-                            <div class="profile-role" id="profile-role">Loading...</div>
+                            <div class="profile-header-info">
+                                <h2 id="profile-name">Loading...</h2>
+                                <p class="profile-position" id="profile-position">Loading...</p>
+                                <div class="profile-role-badge" id="profile-role">Loading...</div>
+                            </div>
+                            <div class="profile-quick-info">
+                                <div class="quick-info-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span id="profile-email-quick">Loading...</span>
+                                </div>
+                                <div class="quick-info-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span id="profile-phone-quick">Loading...</span>
+                                </div>
+                                <div class="quick-info-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span id="profile-last-login-quick">Loading...</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="admin-card">
-                        <h2><i class="fas fa-info-circle"></i> Personal Information</h2>
-                        <div class="profile-details">
-                            <div class="detail-row">
-                                <div class="detail-label">Full Name</div>
-                                <div class="detail-value" id="profile-fullname">Loading...</div>
+                    <!-- Right Column - Details -->
+                    <div class="profile-main">
+                        <div class="admin-card">
+                            <div class="card-header">
+                                <h2><i class="fas fa-info-circle"></i> Personal Information</h2>
                             </div>
-                            <div class="detail-row">
-                                <div class="detail-label">Username</div>
-                                <div class="detail-value" id="profile-username">Loading...</div>
+                            <div class="profile-details-grid">
+                                <div class="detail-item">
+                                    <label>Full Name</label>
+                                    <div class="detail-value" id="profile-fullname">Loading...</div>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Username</label>
+                                    <div class="detail-value" id="profile-username">Loading...</div>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Email Address</label>
+                                    <div class="detail-value" id="profile-email">Loading...</div>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Phone Number</label>
+                                    <div class="detail-value" id="profile-phone">Loading...</div>
+                                </div>
                             </div>
-                            <div class="detail-row">
-                                <div class="detail-label">Email</div>
-                                <div class="detail-value" id="profile-email">Loading...</div>
-                            </div>
-                            <div class="detail-row">
-                                <div class="detail-label">Phone</div>
-                                <div class="detail-value" id="profile-phone">Loading...</div>
-                            </div>
-                            <div class="detail-row">
-                                <div class="detail-label">Last Login</div>
-                                <div class="detail-value" id="profile-last-login">Loading...</div>
+                            <div class="profile-actions">
+                                <button class="admin-button" id="edit-profile">
+                                    <i class="fas fa-edit"></i> Edit Profile
+                                </button>
+                                <button class="admin-button secondary" id="change-password">
+                                    <i class="fas fa-key"></i> Change Password
+                                </button>
                             </div>
                         </div>
-                        <div class="profile-actions">
-                            <button class="admin-button" id="edit-profile">
-                                <i class="fas fa-edit"></i> Edit Profile
-                            </button>
-                            <button class="admin-button secondary" id="change-password">
-                                <i class="fas fa-key"></i> Change Password
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="admin-card">
-                        <h2><i class="fas fa-shield-alt"></i> Permissions</h2>
-                        <div class="permissions-container" id="permissions-container">
-                            <!-- Permissions will be populated by JavaScript -->
+                        
+                        <div class="admin-card">
+                            <div class="card-header">
+                                <h2><i class="fas fa-shield-alt"></i> Account Permissions</h2>
+                            </div>
+                            <div class="permissions-grid" id="permissions-container">
+                                <!-- Permissions will be populated by JavaScript -->
+                            </div>
                         </div>
                     </div>
                 </div>
