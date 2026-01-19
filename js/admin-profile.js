@@ -15,14 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Find the user in adminUsers array
-    let userProfile = null;
-    for (const user of adminUsers) {
-        if (user.username === currentUser.username) {
-            userProfile = user;
-            break;
-        }
-    }
+    // Use the current user data from sessionStorage
+    const userProfile = currentUser;
 
     if (!userProfile) {
         console.error('User profile not found');
