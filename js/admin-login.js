@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
             profileImage: '../Images/admin-profile.png'
         },
         {
-            username: 'owner',
-            password: 'littlefield2024',
+            username: 'hlittlefield',
+            password: 'Khhl5445@',
             role: 'owner',
             name: 'Harold',
             fullName: 'Harold Littlefield',

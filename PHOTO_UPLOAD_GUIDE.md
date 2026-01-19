@@ -17,7 +17,7 @@ This guide will help you upload and manage photos on the Littlefield Heat Pumps 
 
 3. **Login with your credentials:**
    - **Username:** `hlittlefield`
-   - **Password:** `littlefield2024`
+   - **Password:** `Khhl5445@`
 
 4. **Click on "Photo Gallery"** in the left navigation menu
 
@@ -137,7 +137,7 @@ Contact Joe (Website Administrator):
 
 **Username:** `hlittlefield`
 
-**Password:** `littlefield2024`
+**Password:** `Khhl5445@`
 
 **Supported Formats:** JPG, PNG, GIF
 
