@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Management - Littlefield Heat Pumps</title>
+    <link rel="stylesheet" href="../css/style_new.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .gallery-photo-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        
+        .gallery-photo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-photo-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .gallery-photo-info {
+            padding: 15px;
+        }
+        
+        .gallery-photo-info h4 {
+            margin: 0 0 5px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .gallery-photo-info p {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .gallery-photo-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .gallery-photo-actions button {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .btn-edit {
+            background: #007bff;
+            color: white;
+        }
+        
+        .btn-delete {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .upload-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .upload-form {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .preview-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .preview-container img {
+            max-width: 300px;
+            max-height: 300px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .badge-installations { background: #28a745; color: white; }
+        .badge-maintenance { background: #ffc107; color: #333; }
+        .badge-gas { background: #17a2b8; color: white; }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="admin-login">
+            <button id="logout-button" class="login-button"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+        
+        <header class="hero-section">
+            <a href="../index.html"><img src="../Images/logo.png" alt="Littlefield Heat Pumps, LLC Logo" class="logo"></a>
+            <h2>Gallery Management</h2>
+            <p>Upload and manage project photos</p>
+        </header>
+
+        <main class="admin-dashboard">
+            <div class="admin-header">
+                <div class="admin-title">
+                    <i class="fas fa-images fa-2x" style="color: var(--admin-accent);"></i>
+                    <h1>Photo Gallery</h1>
+                </div>
+                <div class="admin-actions">
+                    <a href="profile.html" class="admin-button">
+                        <i class="fas fa-user-circle"></i> <span id="user-name">My Profile</span>
+                    </a>
+                    <a href="dashboard.html" class="admin-button secondary">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                </div>
+            </div>
+            
+            <div class="admin-nav">
+                <ul>
+                    <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+                    <li><a href="inquiries.html"><i class="fas fa-envelope"></i> Customer Inquiries</a></li>
+                    <li><a href="invoices.html"><i class="fas fa-file-invoice-dollar"></i> Invoices</a></li>
+                    <li><a href="gallery.html" class="active"><i class="fas fa-images"></i> Photo Gallery</a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </div>
+            
+            <div class="admin-content">
+                <!-- Upload Section -->
+                <div class="admin-card">
+                    <h2><i class="fas fa-upload"></i> Upload New Photo</h2>
+                    <div class="upload-section">
+                        <form id="photo-upload-form" class="upload-form" enctype="multipart/form-data">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="photo-title">Photo Title *</label>
+                                    <input type="text" id="photo-title" name="title" required placeholder="e.g., Residential Installation">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="photo-category">Category *</label>
+                                    <select id="photo-category" name="category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="installations">Heat Pump Installations</option>
+                                        <option value="maintenance">Maintenance & Repair</option>
+                                        <option value="gas">Natural Gas & Propane</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="photo-description">Description</label>
+                                <textarea id="photo-description" name="description" rows="3" placeholder="Brief description of the project..."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="photo-file">Select Photo *</label>
+                                <input type="file" id="photo-file" name="photo" accept="image/*" required>
+                                <small>Accepted formats: JPG, PNG, GIF (Max 5MB)</small>
+                            </div>
+                            
+                            <div id="preview-container" class="preview-container" style="display: none;">
+                                <h4>Preview:</h4>
+                                <img id="photo-preview" src="" alt="Preview">
+                            </div>
+                            
+                            <button type="submit" class="admin-button">
+                                <i class="fas fa-cloud-upload-alt"></i> Upload Photo
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Gallery Sections -->
+                <div class="admin-card">
+                    <h2><i class="fas fa-wrench"></i> Heat Pump Installations</h2>
+                    <div id="installations-gallery" class="gallery-grid">
+                        <!-- Photos will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="admin-card">
+                    <h2><i class="fas fa-tools"></i> Maintenance & Repair</h2>
+                    <div id="maintenance-gallery" class="gallery-grid">
+                        <!-- Photos will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="admin-card">
+                    <h2><i class="fas fa-fire"></i> Natural Gas & Propane</h2>
+                    <div id="gas-gallery" class="gallery-grid">
+                        <!-- Photos will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <img src="../Images/logo.png" alt="Littlefield Heat Pumps, LLC Logo" class="logo-footer">
+            <p>&copy; 2024 Littlefield Heat Pumps, LLC. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="../js/admin-login.js"></script>
+    <script src="../js/admin-gallery.js"></script>
+</body>
+</html>
