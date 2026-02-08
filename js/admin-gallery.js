@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading...';
         submitBtn.disabled = true;
         
-        fetch('/Littlefield_Heat_Pumps/server/api/upload-photo.php', {
+        fetch('../server/api/upload-photo.php', {
             method: 'POST',
             body: formData
         })
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Load gallery photos
     function loadGalleryPhotos() {
-        fetch('/Littlefield_Heat_Pumps/server/api/get-photos.php')
+        fetch('../server/api/get-photos.php')
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -230,7 +230,7 @@ function editPhoto(photoId) {
     
     const newDescription = prompt('Enter new description:');
     
-    fetch('/Littlefield_Heat_Pumps/server/api/update-photo.php', {
+    fetch('../server/api/update-photo.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -261,7 +261,7 @@ function deletePhoto(photoId, photoTitle) {
         return;
     }
     
-    fetch('/Littlefield_Heat_Pumps/server/api/delete-photo.php', {
+    fetch('../server/api/delete-photo.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
