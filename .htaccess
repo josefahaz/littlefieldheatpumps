@@ -1,0 +1,41 @@
+# Enable PHP execution
+AddHandler application/x-httpd-php .php
+
+# Set default charset
+AddDefaultCharset UTF-8
+
+# Enable error reporting (disable in production after testing)
+php_flag display_errors on
+php_value error_reporting E_ALL
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Enable CORS for API endpoints
+<FilesMatch "\.(php)$">
+    <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+        Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+        Header set Access-Control-Allow-Headers "Content-Type"
+    </IfModule>
+</FilesMatch>
+
+# Prevent directory listing
+Options -Indexes
+
+# Protect sensitive files
+<FilesMatch "^(\.htaccess|\.gitignore|composer\.json|composer\.lock|package\.json)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Protect config and data directories
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^server/config/ - [F,L]
+    RewriteRule ^server/data/ - [F,L]
+</IfModule>
